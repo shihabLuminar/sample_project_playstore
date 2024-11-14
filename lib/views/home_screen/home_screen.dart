@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
             padding: EdgeInsets.all(20),
             sliver: SliverToBoxAdapter(
               child: Container(
-                height: 200,
+                height: 100,
                 color: Colors.red,
               ),
             ),
@@ -40,7 +40,7 @@ class HomeScreen extends StatelessWidget {
             padding: EdgeInsets.all(20),
             sliver: SliverToBoxAdapter(
               child: Container(
-                height: 200,
+                height: 100,
                 color: Colors.red,
               ),
             ),
@@ -54,69 +54,72 @@ class HomeScreen extends StatelessWidget {
             centerTitle: true,
             actions: [Icon(Icons.favorite_outline)],
           ),
-          SliverPadding(
-            padding: EdgeInsets.all(20),
-            sliver: SliverToBoxAdapter(
-              child: Container(
-                height: 200,
-                color: Colors.red,
+          SliverList(
+            delegate: SliverChildListDelegate([
+              Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(color: Colors.yellow, height: 50)),
+              Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(color: Colors.yellow, height: 50)),
+              Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(color: Colors.yellow, height: 50)),
+            ]),
+          ),
+          SliverList(
+              delegate: SliverChildBuilderDelegate(
+            childCount: 10,
+            (context, index) => Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(color: Colors.green, height: 50)),
+          )),
+          SliverToBoxAdapter(
+              child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: List.generate(
+                10,
+                (index) => Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 200,
+                    width: 100,
+                    color: Colors.red,
+                  ),
+                ),
               ),
             ),
+          )),
+          SliverList.builder(
+            itemCount: 10,
+            itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(color: Colors.blue, height: 50)),
           ),
-          SliverPadding(
-            padding: EdgeInsets.all(20),
-            sliver: SliverToBoxAdapter(
-              child: Container(
-                height: 200,
-                color: Colors.red,
-              ),
-            ),
-          ),
-          SliverPadding(
-            padding: EdgeInsets.all(20),
-            sliver: SliverToBoxAdapter(
-              child: Container(
-                height: 200,
-                color: Colors.red,
-              ),
-            ),
-          ),
-          SliverPadding(
-            padding: EdgeInsets.all(20),
-            sliver: SliverToBoxAdapter(
-              child: Container(
-                height: 200,
-                color: Colors.red,
-              ),
-            ),
-          ),
-          SliverPadding(
-            padding: EdgeInsets.all(20),
-            sliver: SliverToBoxAdapter(
-              child: Container(
-                height: 200,
-                color: Colors.red,
-              ),
-            ),
-          ),
-          SliverPadding(
-            padding: EdgeInsets.all(20),
-            sliver: SliverToBoxAdapter(
-              child: Container(
-                height: 200,
-                color: Colors.red,
-              ),
-            ),
-          ),
-          SliverPadding(
-            padding: EdgeInsets.all(20),
-            sliver: SliverToBoxAdapter(
-              child: Container(
-                height: 200,
-                color: Colors.red,
-              ),
-            ),
-          ),
+          SliverGrid(
+              delegate: SliverChildListDelegate([
+                Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(color: Colors.yellow, height: 50)),
+                Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(color: Colors.yellow, height: 50)),
+                Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(color: Colors.yellow, height: 50)),
+                Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(color: Colors.yellow, height: 50)),
+                Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(color: Colors.yellow, height: 50)),
+                Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(color: Colors.yellow, height: 50)),
+              ]),
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3))
         ],
       ),
     );
